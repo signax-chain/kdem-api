@@ -42,11 +42,6 @@ const bbNotificationRef = require('./routes/BeyondBengaluru/notification');
 const bbCertificateRef = require('./routes/BeyondBengaluru/certificate');
 const bbEventRef = require('./routes/BeyondBengaluru/events');
 const bbSpeakerRef = require('./routes/BeyondBengaluru/speaker');
-router.get('/', (req, res)=>{
-    res.status(200).send("Initializing API");
-});
-
-app.use("/", router);
 
 // api
 app.use("/api/incubator", incubatorRef);
@@ -84,4 +79,5 @@ app.use('/api/BB/speakers', bbSpeakerRef);
 app.use('/api/base64', generalAPIRef)
 
 app.listen(PORT, () => console.log(`Server is listening on port ${PORT}`));
-module.exports.handler = serverless(app);
+
+module.exports = app
