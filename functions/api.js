@@ -3,6 +3,7 @@ const serverless = require("serverless-http");
 const app = express();
 const PORT = 8000;
 require("./config/mongo");
+const router = express.Router()
 
 const cors = require("cors");
 app.use(cors());
@@ -41,9 +42,14 @@ const bbNotificationRef = require('./routes/BeyondBengaluru/notification');
 const bbCertificateRef = require('./routes/BeyondBengaluru/certificate');
 const bbEventRef = require('./routes/BeyondBengaluru/events');
 const bbSpeakerRef = require('./routes/BeyondBengaluru/speaker');
+router.get('/', (req, res)=>{
+    res.status(200).send("Initializing API");
+});
+
+app.use("/", router);
 
 // api
-app.use("/.netlify/functions/api/incubator", incubatorRef);
+app.use("/api/incubator", incubatorRef);
 app.use("/api/role", roleRef);
 app.use("/api/startup", startupRef);
 app.use("/api/founder", founderRef);
