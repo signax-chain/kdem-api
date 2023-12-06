@@ -1,0 +1,2 @@
+const allowedDomains = ["http://localhost:8080", "http://localhost:5000","http://4.227.149.14","http://kdem.eastus.cloudapp.azure.com", "https://kdem-api.herokuapp.com", "https://kdem-b32a7.web.app","https://kdem.startupreneur.co", "https://kdem-test.web.app","http://localhost:8082","https://beyondbengaluru.web.app","http://localhost:3000", "https://signax-convert.web.app", "https://beta.signa-x.io", "http://127.0.0.1:5500"];
+module.exports = { allowedDomains };
