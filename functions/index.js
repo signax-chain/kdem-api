@@ -1,4 +1,5 @@
 const express = require("express");
+const serverless = require("serverless-http");
 const app = express();
 const PORT = 8000;
 require("./config/mongo");
@@ -77,3 +78,4 @@ app.use('/api/BB/speakers', bbSpeakerRef);
 app.use('/api/base64', generalAPIRef)
 
 app.listen(PORT, () => console.log(`Server is listening on port ${PORT}`));
+export const handler = serverless(app);
