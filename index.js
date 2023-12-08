@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const PORT = 8080;
+const PORT = 8000;
 require("./config/mongo");
 
 const cors = require("cors");
@@ -40,6 +40,8 @@ const bbNotificationRef = require('./routes/BeyondBengaluru/notification');
 const bbCertificateRef = require('./routes/BeyondBengaluru/certificate');
 const bbEventRef = require('./routes/BeyondBengaluru/events');
 const bbSpeakerRef = require('./routes/BeyondBengaluru/speaker');
+const bbDocumentRef = require('./routes/BeyondBengaluru/documents');
+const bbServiceProviderRef = require('./routes/BeyondBengaluru/service_provider');
 
 // api
 app.use("/api/incubator", incubatorRef);
@@ -72,6 +74,8 @@ app.use('/api/BB/notifications', bbNotificationRef)
 app.use('/api/BB/certificates', bbCertificateRef)
 app.use('/api/BB/events', bbEventRef);
 app.use('/api/BB/speakers', bbSpeakerRef);
+app.use('/api/BB/documents', bbDocumentRef);
+app.use('/api/BB/services', bbServiceProviderRef);
 
 // General API
 app.use('/api/base64', generalAPIRef)
