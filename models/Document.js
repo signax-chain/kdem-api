@@ -21,6 +21,10 @@ const DocumentSchema = mongoose.Schema({
     type: Number,
     required: false,
   },
+  month: {
+    type: String,
+    required: false,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
