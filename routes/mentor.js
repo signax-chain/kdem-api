@@ -9,12 +9,13 @@ const Incubator = require('../models/Incubator')
 //get all incubator id
 router.get('/', validator, async (req, res) => {
   try {
-    const mentors = await Mentor.find()
-    for (let i = 0; i < mentors.length; i++) {
+    const mentors = await Mentor.find();
+    for (let mentor of mentors) {
       const response = await Incubator.findOne({
-        incubator_id: mentors[i].incubator_id,
+        incubator_id: mentor.incubator_id,
       })
-      mentors[i].incubator_name = response.name
+      if(!response) continue;
+      mentor.incubator_name = response.name
     }
     res.status(200).json(mentors)
   } catch (error) {
